@@ -1,0 +1,46 @@
+# Balanced baseline for a single modern GPU (about 8-12 GB VRAM).
+model: yolov8s.pt
+data: data/processed/rdd2022.yaml
+epochs: 100
+batch: 16
+imgsz: 768
+optimizer: AdamW
+lr0: 0.001
+lrf: 0.01
+weight_decay: 0.0005
+warmup_epochs: 3.0
+cos_lr: true
+patience: 20
+
+# Road-safe augmentation. Vertical flips are deliberately disabled.
+mosaic: 1.0
+close_mosaic: 10
+fliplr: 0.5
+flipud: 0.0
+hsv_h: 0.015
+hsv_s: 0.4
+hsv_v: 0.3
+translate: 0.1
+scale: 0.4
+degrees: 3.0
+shear: 1.0
+perspective: 0.0002
+mixup: 0.0
+
+# Passed through Ultralytics' bbox-aware Albumentations integration.
+custom_augmentations:
+  - name: RandomBrightnessContrast
+    brightness_limit: 0.15
+    contrast_limit: 0.20
+    p: 0.25
+
+seed: 42
+deterministic: true
+workers: 8
+cache: false
+amp: true
+plots: true
+save: true
+project: results/training
+name: yolov8s_rdd2022
+exist_ok: true

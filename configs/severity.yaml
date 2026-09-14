@@ -1,0 +1,11 @@
+# Screen-space area thresholds are class-specific heuristics, not engineering ratings.
+# Ratios are bbox area / image area. Calibrate meters_per_pixel at capture time to
+# produce rough physical dimensions.
+area_ratio_thresholds:
+  D00: [0.01, 0.04]
+  D10: [0.01, 0.04]
+  D20: [0.015, 0.05]
+  D40: [0.005, 0.02]
+labels: [minor, moderate, severe]
+default_meters_per_pixel: null
+relative_uncertainty: 0.25

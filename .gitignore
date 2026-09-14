@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+*.whl
+
+# Virtual env
+.venv/
+env/
+venv/
+
+# Data and results
+data/
+results/
+*.h5
+*.pt
+*.ckpt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log

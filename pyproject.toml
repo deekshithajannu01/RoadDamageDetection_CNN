@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rdd2022-road-damage"
+version = "0.1.0"
+description = "Reproducible YOLOv8 pipeline for four-class road-damage detection on RDD2022 India"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "Project maintainer" }]
+dependencies = [
+  "albumentations>=1.4.6,<2",
+  "iterative-stratification>=0.1.9,<1",
+  "matplotlib>=3.7,<4",
+  "numpy>=1.24,<3",
+  "opencv-python-headless>=4.8,<5",
+  "pandas>=2.0,<3",
+  "Pillow>=10,<12",
+  "PyYAML>=6,<7",
+  "requests>=2.31,<3",
+  "seaborn>=0.13,<1",
+  "tqdm>=4.66,<5",
+  "ultralytics>=8.4,<9",
+  "urllib3>=1.26,<3",
+]
+
+[project.scripts]
+rdd-download = "road_damage.download:main"
+rdd-prepare = "road_damage.prepare:main"
+rdd-eda = "road_damage.eda:main"
+rdd-train = "road_damage.train:main"
+rdd-tune = "road_damage.tune:main"
+rdd-evaluate = "road_damage.evaluate:main"
+rdd-failure-analysis = "road_damage.failure_analysis:main"
+rdd-predict = "road_damage.predict:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
